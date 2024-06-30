@@ -3,6 +3,6 @@ first chess game
 
 
 # To run game
-go to main.py
+cd src
 
 terminal command - python3.11 main.py
