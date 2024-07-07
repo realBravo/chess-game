@@ -57,8 +57,10 @@ class Main:
                 
                 # mouse motion
                 elif event.type == pygame.MOUSEMOTION:
-                    motion_row = event.pos[1] // SQSIZE
-                    motion_col = event.pos[0] // SQSIZE
+                    # motion_row = event.pos[1] // SQSIZE
+                    # motion_col = event.pos[0] // SQSIZE
+                    motion_row = min(max(event.pos[1] // SQSIZE, 0), 7)
+                    motion_col = min(max(event.pos[1] // SQSIZE, 0), 7)
 
                     game.set_hover(motion_row, motion_col)
 
@@ -78,8 +80,11 @@ class Main:
                     if dragger.dragging:
                         dragger.update_mouse(event.pos)
 
-                        released_row = dragger.mouseY // SQSIZE
-                        released_col = dragger.mouseX // SQSIZE
+                        
+                        # released_row = dragger.mouseY // SQSIZE
+                        # released_col = dragger.mouseX // SQSIZE
+                        released_row = min(max(event.pos[1] // SQSIZE, 0), 7)
+                        released_col = min(max(event.pos[1] // SQSIZE, 0), 7)
 
                         # create possible move
                         initial = Square(dragger.initial_row, dragger.initial_col)
